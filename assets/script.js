@@ -11,6 +11,29 @@ var newPassword ="";
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+// Click button to generate a password
+function generatePassword() {
+
+  // Prompt for password criteria
+  passwordLength = window.prompt("How many characters would you like your password to contain? Please pick 8-128 characters.");
+
+  // Alert if character choice is not between 8-128
+  if(passwordLength < 8 || passwordLength > 128) {
+    window.alert("Your password must contain 8-128 characters. Please try again.");
+    return
+  }
+
+
+
+
+  newPassword
+    for (var i = 0; i < passwordLength; i++) {
+      newPassword = newPassword + allChar[Math.floor(Math.random() * allChar.length)];
+      console.log(newPassword)
+    }
+    return newPassword;
+}
+
 
 // Write password to the #password input
 function writePassword() {

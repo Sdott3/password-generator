@@ -36,6 +36,56 @@ function generatePassword() {
   // special character confirmation
   specialCharacterConfirm = confirm("Would you like your password to contain special characters?");
 
+  // if user selects 0 of 4 required  criteria selected an alert will appear
+  if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === false && specialCharConfirm === false) {
+    window.alert("Your password must have one of the recommended criteria.");
+    return
+  }
+
+  // 3 0f 4 selected
+  else if (lowerCaseConfirm === true && upperCaseConfirm === true && numericConfirm === true && specialCharConfirm === false) {
+    selection = lowerCase.concat(upperCase, numeric)
+  }
+  else if (lowerCaseConfirm === true && upperCaseConfirm === true && numericConfirm === false && specialCharConfirm === true) {
+    selection = lowerCase.concat(upperCase, specialCharacter);
+  }
+  else if (lowerCaseConfirm === true && upperCaseConfirm === false && numericConfirm === true && specialCharConfirm === true) {
+    selection = lowerCase.concat(numeric, specialCharacter);
+  }
+  else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === true && specialCharConfirm === true) {
+    selection = upperCase.concat(numeric, specialCharacter);
+  }
+
+  // 2 of 4 selected
+  else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === true && specialCharConfirm === true) {
+    selection = numeric.concat(specialCharacter);
+  }
+  else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === false && specialCharConfirm === true) {
+    selection = upperCase.concat(specialCharacter);
+  }
+  else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === true && specialCharConfirm === false) {
+    selection = upperCase.concat(numeric);
+  }
+  else if (lowerCaseConfirm === true && upperCaseConfirm === true && numericConfirm === false && specialCharConfirm === false) {
+    selection = lowerCase.concat(upperCase);
+  }
+  else if (lowerCaseConfirm === true && upperCaseConfirm === false && numericConfirm === true && specialCharConfirm === false) {
+    selection = lowerCase.concat(numeric);
+  }
+
+  // 1 of 4 selected
+  else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === false && specialCharConfirm === true) {
+    selection = specialCharacter
+  }
+  else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === true && specialCharConfirm === false) {
+    selection = numeric
+  }
+  else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === false && specialCharConfirm === false) {
+    selection = upperCase
+  }
+  else if (lowerCaseConfirm === true && upperCaseConfirm === false && numericConfirm === false && specialCharConfirm === false) {
+    selection = lowerCase
+  }
 }
 
 

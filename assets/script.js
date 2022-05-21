@@ -5,8 +5,12 @@ var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 var numeric = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 var specialCharacter = ['@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
 var passwordLength;
-var allChar = [];
-var newPassword ="";
+var characterSelection;
+
+var lowerCaseConfirm;
+var upperCaseConfirm;
+var numericConfirm;
+var specialCharacterConfirm;
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -23,15 +27,8 @@ function generatePassword() {
     return
   }
 
+  // Prompt for lower case usage
 
-
-
-  newPassword
-    for (var i = 0; i < passwordLength; i++) {
-      newPassword = newPassword + allChar[Math.floor(Math.random() * allChar.length)];
-      console.log(newPassword)
-    }
-    return newPassword;
 }
 
 

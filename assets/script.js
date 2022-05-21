@@ -27,7 +27,14 @@ function generatePassword() {
     return
   }
 
-  // Prompt for lower case usage
+  // lowercase confirmation
+  lowerCaseConfirm = confirm("Would you like your password to contain lowercase letters?");
+  // uppercase confirmation
+  upperCaseConfirm = confirm("Would you like your password to contain uppercase letters?");
+  // numeric confirmation 
+  numericConfirm = confirm("Would you password to contain numbers?");
+  // special character confirmation
+  specialCharacterConfirm = confirm("Would you like your password to contain special characters?");
 
 }
 

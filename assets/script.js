@@ -35,9 +35,10 @@ function generatePassword() {
   numericConfirm = confirm("Would you password to contain numbers?");
   // special character confirmation
   specialCharacterConfirm = confirm("Would you like your password to contain special characters?");
+  
 
   // if user selects 0 of 4 required  criteria selected an alert will appear
-  if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === false && specialCharConfirm === false) {
+  if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === false && specialCharacterConfirm === false) {
     window.alert("Your password must have one of the recommended criteria.");
     return
   }
@@ -72,11 +73,14 @@ function generatePassword() {
   // 1 of 4 selected
   else if (lowerCaseConfirm === true && upperCaseConfirm === false && numericConfirm === false && specialCharacterConfirm === false) {
     selection = lowerCase
-  } else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === false && specialCharacterConfirm === false) {
+  } 
+  else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === false && specialCharacterConfirm === false) {
     selection = upperCase
-  } else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === true && specialCharacterConfirm === false) {
-    selection = numericConfirm
-  } else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === false && specialCharacterConfirm === true) {
+  } 
+  else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === true && specialCharacterConfirm === false) {
+    selection = numeric
+  } 
+  else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === false && specialCharacterConfirm === true) {
     selection = specialCharacter
   }
   

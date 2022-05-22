@@ -5,7 +5,7 @@ var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 var numeric = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 var specialCharacter = ['@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
 var passwordLength;
-var characterSelection;
+var selection;
 
 var lowerCaseConfirm;
 var upperCaseConfirm;
@@ -42,50 +42,53 @@ function generatePassword() {
     return
   }
 
+  // 4 of the recommended criteria selected
+  else if (lowerCaseConfirm === true && upperCaseConfirm === true && numericConfirm === true && specialCharacterConfirm === true) {
+    selection = lowerCase.concat(upperCase, numeric, specialCharacter);
+  }
+
   // 3 0f 4 selected
-  else if (lowerCaseConfirm === true && upperCaseConfirm === true && numericConfirm === true && specialCharConfirm === false) {
-    selection = lowerCase.concat(upperCase, numeric)
-  }
-  else if (lowerCaseConfirm === true && upperCaseConfirm === true && numericConfirm === false && specialCharConfirm === true) {
-    selection = lowerCase.concat(upperCase, specialCharacter);
-  }
-  else if (lowerCaseConfirm === true && upperCaseConfirm === false && numericConfirm === true && specialCharConfirm === true) {
-    selection = lowerCase.concat(numeric, specialCharacter);
-  }
-  else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === true && specialCharConfirm === true) {
+  else if (lowerCaseConfirm === true && upperCaseConfirm === true && numericConfirm === true && specialCharacterConfirm === false) {
+    selection = lowerCase.concat(upperCase, numeric);
+  } else if (lowerCaseConfirm === true && upperCaseConfirm === true && numericConfirm === false && specialCharacterConfirm === true) {
+    selection = lowerCaseConfirm.concat(upperCase, specialCharacter);
+  } else if ( lowerCaseConfirm === true && upperCaseConfirm === false && numericConfirm === true && specialCharacterConfirm === true) {
+    selection = lowerCase.concat(numeric,specialCharacter);
+  } else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === true && specialCharacterConfirm === true) {
     selection = upperCase.concat(numeric, specialCharacter);
   }
 
   // 2 of 4 selected
-  else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === true && specialCharConfirm === true) {
-    selection = numeric.concat(specialCharacter);
-  }
-  else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === false && specialCharConfirm === true) {
-    selection = upperCase.concat(specialCharacter);
-  }
-  else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === true && specialCharConfirm === false) {
-    selection = upperCase.concat(numeric);
-  }
-  else if (lowerCaseConfirm === true && upperCaseConfirm === true && numericConfirm === false && specialCharConfirm === false) {
+  else if (lowerCaseConfirm === true && upperCaseConfirm === true && numericConfirm === false && specialCharacterConfirm === false) {
     selection = lowerCase.concat(upperCase);
-  }
-  else if (lowerCaseConfirm === true && upperCaseConfirm === false && numericConfirm === true && specialCharConfirm === false) {
+  } else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === true && specialCharacterConfirm === true) {
+    selection = numeric.concat(specialCharacter);
+  } else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === false && specialCharacterConfirm === true) {
+    selection = upperCase.concat(specialCharacter);
+  } else if (lowerCaseConfirm === true && upperCaseConfirm === false && numericConfirm === true && specialCharacterConfirm === false) {
     selection = lowerCase.concat(numeric);
   }
 
   // 1 of 4 selected
-  else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === false && specialCharConfirm === true) {
+  else if (lowerCaseConfirm === true && upperCaseConfirm === false && numericConfirm === false && specialCharacterConfirm === false) {
+    selection = lowerCase
+  } else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === false && specialCharacterConfirm === false) {
+    selection = upperCase
+  } else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === true && specialCharacterConfirm === false) {
+    selection = numericConfirm
+  } else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === false && specialCharacterConfirm === true) {
     selection = specialCharacter
   }
-  else if (lowerCaseConfirm === false && upperCaseConfirm === false && numericConfirm === true && specialCharConfirm === false) {
-    selection = numeric
+  
+
+  // for loop runs every time and and picks characters at random and until number of characters is met
+  var newPassword = '';
+  for (var i = 0; i < passwordLength; i++) {
+    newPassword += selection[Math.floor(Math.random() * selection.length)];
+    console.log(newPassword);
   }
-  else if (lowerCaseConfirm === false && upperCaseConfirm === true && numericConfirm === false && specialCharConfirm === false) {
-    selection = upperCase
-  }
-  else if (lowerCaseConfirm === true && upperCaseConfirm === false && numericConfirm === false && specialCharConfirm === false) {
-    selection = lowerCase
-  }
+  return newPassword;
+
 }
 
 
